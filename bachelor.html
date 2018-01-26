@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>卒論締め切りカウントダウン</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+    function countDown() {
+        var current_time = new Date();
+        var deadline = new Date("2018-02-15T16:00:00");
+        var left = deadline - current_time;
+
+        var a_day = 24 * 60 * 60 * 1000;
+        var d = Math.floor(left / a_day)
+        var h = Math.floor((left % a_day) / (60 * 60 * 1000))
+        var m = Math.floor((left % a_day) / (60 * 1000)) % 60
+        var s = Math.floor((left % a_day) / 1000) % 60 % 60
+
+        $("#timeCount").text(d + '日' + h + '時間' + m + '分' + s + '秒');
+        setTimeout('countDown()', 1000);
+    }
+</script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function() {
+        countDown();
+    });
+</script>
+
+卒論提出〆切まであと
+<div id="timeCount"></div>
+</body>
+</html>
