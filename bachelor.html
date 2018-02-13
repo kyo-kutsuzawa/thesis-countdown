@@ -16,7 +16,12 @@
         var m = Math.floor((left % a_day) / (60 * 1000)) % 60
         var s = Math.floor((left % a_day) / 1000) % 60 % 60
 
-        $("#timeCount").text(d + '日' + h + '時間' + m + '分' + s + '秒');
+        if (left > 0) {
+            $("#timeCount").text('卒論提出〆切まで: ' + d + '日' + h + '時間' + m + '分' + s + '秒');
+        }
+        else {
+            $("#timeCount").text('卒論提出お疲れ様でした。');
+        }
         setTimeout('countDown()', 1000);
     }
 </script>
@@ -28,7 +33,6 @@
     });
 </script>
 
-卒論提出〆切まであと
 <div id="timeCount"></div>
 </body>
 </html>
