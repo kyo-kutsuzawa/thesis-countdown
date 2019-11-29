@@ -7,7 +7,7 @@
 <script type="text/javascript">
     function countDown() {
         var current_time = new Date();
-        var deadline = new Date("2019-02-05T14:00:00");
+        var deadline = new Date("2020-02-05T14:00:00");
         var left = deadline - current_time;
 
         var a_day = 24 * 60 * 60 * 1000;
@@ -17,7 +17,7 @@
         var s = Math.floor((left % a_day) / 1000) % 60 % 60
 
         if (left > 0) {
-            $("#timeCount").text('修論提出〆切まで: ' + d + '日' + h + '時間' + m + '分' + s + '秒');
+            $("#timeCount").text('修論提出〆切まで: だいたい' + d + '日' + h + '時間' + m + '分' + s + '秒');
         }
         else {
             $("#timeCount").text('修論提出お疲れ様でした。');
