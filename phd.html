@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>博論締め切りカウントダウン</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+    function countDown() {
+        var current_time = new Date();
+        var deadline = new Date("2019-12-06T16:00:00");
+        var left = deadline - current_time;
+
+        var a_day = 24 * 60 * 60 * 1000;
+        var d = Math.floor(left / a_day)
+        var h = Math.floor((left % a_day) / (60 * 60 * 1000))
+        var m = Math.floor((left % a_day) / (60 * 1000)) % 60
+        var s = Math.floor((left % a_day) / 1000) % 60 % 60
+
+        if (left > 0) {
+            $("#timeCount").text('博論提出〆切まで: だいたい' + d + '日' + h + '時間' + m + '分' + s + '秒');
+        }
+        else {
+            $("#timeCount").text('博論提出お疲れ様でした。');
+        }
+        setTimeout('countDown()', 1000);
+    }
+</script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function() {
+        countDown();
+    });
+</script>
+
+<div id="timeCount"></div>
+</body>
+</html>
